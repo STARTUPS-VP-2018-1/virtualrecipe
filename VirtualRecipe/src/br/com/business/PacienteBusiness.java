@@ -10,6 +10,7 @@ import br.com.virtualrecipe.business.interfaces.PacienteInterface;
 import br.com.virtualrecipe.dominio.Paciente;
 import br.com.virtualrecipe.dominio.PacienteExames;
 import br.com.virtualrecipe.dominio.PacienteReceitas;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,7 +22,7 @@ public class PacienteBusiness implements PacienteInterface {
     @Override
     public Paciente cadastrarPaciente(Paciente paciente) {
         BancoDeDados.pacienteBDFake.add(paciente);
-        return paciente;
+      return paciente;
     }
 
     @Override
@@ -35,12 +36,20 @@ public class PacienteBusiness implements PacienteInterface {
 
     @Override
     public List<Paciente> buscarPacientePorNome(String nome) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+          List<Paciente> listaDePacienteEncontrados = new ArrayList<Paciente>();        
+        
+        for(int i = 0; i< BancoDeDados.pacienteBDFake.size();i++){
+            Paciente paciente = BancoDeDados.pacienteBDFake.get(i);
+            if(paciente.getNomePaciente().startsWith(nome)){
+                listaDePacienteEncontrados.add(paciente);
+            }           
+        }
+        return listaDePacienteEncontrados;
     }
 
     @Override
     public List<Paciente> buscarTodosPacientes() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return BancoDeDados.pacienteBDFake;
     }
 
     @Override
@@ -52,7 +61,5 @@ public class PacienteBusiness implements PacienteInterface {
     public List<PacienteExames> buscarExamePaciente(Integer id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    
     
 }

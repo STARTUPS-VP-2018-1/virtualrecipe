@@ -5,8 +5,10 @@
  */
 package br.com.business;
 
+import br.com.virtualrecipe.banco.BancoDeDados;
 import br.com.virtualrecipe.business.interfaces.FarmaceuticoInterface;
 import br.com.virtualrecipe.dominio.Farmaceutico;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,24 +19,37 @@ public class FarmaceuticoBusiness implements FarmaceuticoInterface{
 
     @Override
     public Farmaceutico cadastrarFarmaceutico(Farmaceutico farmaceutico) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+     BancoDeDados.farmaceuticoBDFake.add(farmaceutico);
+        return farmaceutico;   
     }
 
     @Override
-    public Farmaceutico buscarFarmaceutico(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Farmaceutico buscarFarmaceutico(Integer crf) {
+         for (Farmaceutico farmaceutico: BancoDeDados.farmaceuticoBDFake){
+            if(farmaceutico.getCrf() == crf){
+                return farmaceutico;
+            }
+        }return null;
     }
 
     @Override
     public List<Farmaceutico> buscarFarmaceuticoPorNome(String nome) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            List<Farmaceutico> listaDeFarmaceuticoEncontrados = new ArrayList<Farmaceutico>();        
+        
+        for(int i = 0; i< BancoDeDados.farmaceuticoBDFake.size();i++){
+            Farmaceutico farmaceutico = BancoDeDados.farmaceuticoBDFake.get(i);
+            if(farmaceutico.getNomeFarmaceutico().startsWith(nome)){
+                listaDeFarmaceuticoEncontrados.add(farmaceutico);
+            }           
+        }
+        return listaDeFarmaceuticoEncontrados;
     }
+
+
 
     @Override
     public List<Farmaceutico> buscarTodosFarmaceuticos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    
+      return BancoDeDados.farmaceuticoBDFake;
+    }    
     
 }

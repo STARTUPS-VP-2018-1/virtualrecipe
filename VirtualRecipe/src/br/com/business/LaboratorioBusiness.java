@@ -8,6 +8,7 @@ package br.com.business;
 import br.com.virtualrecipe.banco.BancoDeDados;
 import br.com.virtualrecipe.business.interfaces.LaboratorioInterface;
 import br.com.virtualrecipe.dominio.Laboratorio;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -25,24 +26,40 @@ public class LaboratorioBusiness implements LaboratorioInterface {
 
     @Override
     public Laboratorio buscarLaboratorio(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         for (Laboratorio laboratorio: BancoDeDados.laboratoriBDFake){
+            if(laboratorio.getId() == id){
+                return laboratorio;
+            }
+        }return null;
     }
 
     @Override
     public List<Laboratorio> buscarLaboratorioPorNome(String nome) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<Laboratorio> listaDeLaboratorioEncontrados = new ArrayList<Laboratorio>();        
+        
+        for(int i = 0; i< BancoDeDados.laboratoriBDFake.size();i++){
+            Laboratorio laboratorio = BancoDeDados.laboratoriBDFake.get(i);
+            if(laboratorio.getNomeLaboratorio().startsWith(nome)){
+                listaDeLaboratorioEncontrados.add(laboratorio);
+            }           
+        }
+        return listaDeLaboratorioEncontrados;
     }
+
 
     @Override
     public List<Laboratorio> buscarLaboratorioPorTelefone(Integer telefone) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+          for (Laboratorio laboratorio: BancoDeDados.laboratoriBDFake){
+            if(laboratorio.getTelefoneLaboratorio()== telefone){
+                return (List<Laboratorio>) laboratorio;
+            }
+        }return null;
     }
 
     @Override
     public List<Laboratorio> buscarTodosLaboratorios() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return BancoDeDados.laboratoriBDFake;
     }
-
     
     
 }

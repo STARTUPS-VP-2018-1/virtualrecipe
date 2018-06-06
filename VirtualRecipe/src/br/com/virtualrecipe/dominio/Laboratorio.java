@@ -12,8 +12,17 @@ import java.util.Objects;
  * @author melis_000
  */
 public class Laboratorio {
+   private Integer id;
   private String nomeLaboratorio;
   private Integer telefoneLaboratorio;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getNomeLaboratorio() {
         return nomeLaboratorio;

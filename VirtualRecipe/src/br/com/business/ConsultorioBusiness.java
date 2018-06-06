@@ -5,8 +5,10 @@
  */
 package br.com.business;
 
+import br.com.virtualrecipe.banco.BancoDeDados;
 import br.com.virtualrecipe.business.interfaces.ConsultorioInterface;
 import br.com.virtualrecipe.dominio.Consultorio;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,30 +17,55 @@ import java.util.List;
  */
 public class ConsultorioBusiness implements ConsultorioInterface {
 
+    /*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+
     @Override
     public Consultorio cadastrarConsultorio(Consultorio consultorio) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        BancoDeDados.consultorioBDFake.add(consultorio);
+        return consultorio;
     }
 
     @Override
     public Consultorio buscarConsultorio(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       for (Consultorio consultorio: BancoDeDados.consultorioBDFake){
+            if(consultorio.getId() == id){
+                return consultorio;
+            }
+        }return null;
     }
 
     @Override
     public List<Consultorio> buscarConsultorioPorNome(String nome) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    List<Consultorio> listaDeConsultorioEncontrados = new ArrayList<Consultorio>();        
+        
+        for(int i = 0; i< BancoDeDados.consultorioBDFake.size();i++){
+            Consultorio consultorio = BancoDeDados.consultorioBDFake.get(i);
+            if(consultorio.getNomeConsultorio().startsWith(nome)){
+                listaDeConsultorioEncontrados.add(consultorio);
+            }           
+        }
+        return listaDeConsultorioEncontrados;
     }
 
     @Override
     public List<Consultorio> buscarConsultorioPorTelefone(Integer telefone) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         for (Consultorio consultorio: BancoDeDados.consultorioBDFake){
+            if(consultorio.getTelefoneConsultorio()== telefone){
+                return (List<Consultorio>) consultorio;
+            }
+        }return null;
     }
 
     @Override
     public List<Consultorio> buscarTodosConsultorios() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+     return BancoDeDados.consultorioBDFake;
     }
+
 
 
 }

@@ -12,14 +12,16 @@ import java.util.Objects;
  * @author melis_000
  */
 public class Consultorio {
+    private Integer id;
     private String nomeConsultorio;
     private Integer telefoneConsultorio;
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 89 * hash + Objects.hashCode(this.nomeConsultorio);
-        hash = 89 * hash + Objects.hashCode(this.telefoneConsultorio);
+        int hash = 3;
+        hash = 17 * hash + Objects.hashCode(this.id);
+        hash = 17 * hash + Objects.hashCode(this.nomeConsultorio);
+        hash = 17 * hash + Objects.hashCode(this.telefoneConsultorio);
         return hash;
     }
 
@@ -38,10 +40,21 @@ public class Consultorio {
         if (!Objects.equals(this.nomeConsultorio, other.nomeConsultorio)) {
             return false;
         }
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
         if (!Objects.equals(this.telefoneConsultorio, other.telefoneConsultorio)) {
             return false;
         }
         return true;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getNomeConsultorio() {
@@ -59,5 +72,7 @@ public class Consultorio {
     public void setTelefoneConsultorio(Integer telefoneConsultorio) {
         this.telefoneConsultorio = telefoneConsultorio;
     }
+
+    
     
 }

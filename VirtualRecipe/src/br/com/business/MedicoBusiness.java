@@ -8,6 +8,7 @@ package br.com.business;
 import br.com.virtualrecipe.banco.BancoDeDados;
 import br.com.virtualrecipe.business.interfaces.MedicoInterface;
 import br.com.virtualrecipe.dominio.Medico;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -33,14 +34,21 @@ public class MedicoBusiness implements MedicoInterface {
 
     @Override
     public List<Medico> buscarFarmaceuticoPorNome(String nome) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<Medico> listaDeMedicoEncontrados = new ArrayList<Medico>();        
+        
+        for(int i = 0; i< BancoDeDados.medicoBDFake.size();i++){
+            Medico medico = BancoDeDados.medicoBDFake.get(i);
+            if(medico.getNomeMedico().startsWith(nome)){
+                listaDeMedicoEncontrados.add(medico);
+            }           
+        }
+        return listaDeMedicoEncontrados;
     }
 
     @Override
     public List<Medico> buscarTodosMedicos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return BancoDeDados.medicoBDFake;
     }
-
-   
-    
+  
+        
 }
