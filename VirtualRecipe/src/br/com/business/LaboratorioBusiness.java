@@ -23,15 +23,7 @@ public class LaboratorioBusiness implements LaboratorioInterface {
         return laboratorio;
         
     }
-
-    @Override
-    public Laboratorio buscarLaboratorio(Integer id) {
-         for (Laboratorio laboratorio: BancoDeDados.laboratoriBDFake){
-            if(laboratorio.getId() == id){
-                return laboratorio;
-            }
-        }return null;
-    }
+   
 
     @Override
     public List<Laboratorio> buscarLaboratorioPorNome(String nome) {
@@ -39,7 +31,7 @@ public class LaboratorioBusiness implements LaboratorioInterface {
         
         for(int i = 0; i< BancoDeDados.laboratoriBDFake.size();i++){
             Laboratorio laboratorio = BancoDeDados.laboratoriBDFake.get(i);
-            if(laboratorio.getNomeLaboratorio().startsWith(nome)){
+            if(laboratorio.getNomeLab().startsWith(nome)){
                 listaDeLaboratorioEncontrados.add(laboratorio);
             }           
         }
@@ -50,7 +42,7 @@ public class LaboratorioBusiness implements LaboratorioInterface {
     @Override
     public List<Laboratorio> buscarLaboratorioPorTelefone(Integer telefone) {
           for (Laboratorio laboratorio: BancoDeDados.laboratoriBDFake){
-            if(laboratorio.getTelefoneLaboratorio()== telefone){
+            if(laboratorio.getTelefone1Lab()== telefone){
                 return (List<Laboratorio>) laboratorio;
             }
         }return null;

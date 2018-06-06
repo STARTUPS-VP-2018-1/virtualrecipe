@@ -12,39 +12,26 @@ import java.util.Objects;
  * @author melis_000
  */
 public class Laboratorio {
-   private Integer id;
-  private String nomeLaboratorio;
-  private Integer telefoneLaboratorio;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getNomeLaboratorio() {
-        return nomeLaboratorio;
-    }
-
-    public void setNomeLaboratorio(String nomeLaboratorio) {
-        this.nomeLaboratorio = nomeLaboratorio;
-    }
-
-    public Integer getTelefoneLaboratorio() {
-        return telefoneLaboratorio;
-    }
-
-    public void setTelefoneLaboratorio(Integer telefoneLaboratorio) {
-        this.telefoneLaboratorio = telefoneLaboratorio;
-    }
+   private String nomeLab;
+    private Integer telefone1Lab;
+    private Integer telefone2Lab;
+    private String enderecoLab;
+    private Integer numeroEndLab;
+    private String complEndLab;
+    private String responsavelLab;
+    private Integer cpfRespLab;
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 97 * hash + Objects.hashCode(this.nomeLaboratorio);
-        hash = 97 * hash + Objects.hashCode(this.telefoneLaboratorio);
+        int hash = 3;
+        hash = 89 * hash + Objects.hashCode(this.nomeLab);
+        hash = 89 * hash + Objects.hashCode(this.telefone1Lab);
+        hash = 89 * hash + Objects.hashCode(this.telefone2Lab);
+        hash = 89 * hash + Objects.hashCode(this.enderecoLab);
+        hash = 89 * hash + Objects.hashCode(this.numeroEndLab);
+        hash = 89 * hash + Objects.hashCode(this.complEndLab);
+        hash = 89 * hash + Objects.hashCode(this.responsavelLab);
+        hash = 89 * hash + Objects.hashCode(this.cpfRespLab);
         return hash;
     }
 
@@ -60,13 +47,97 @@ public class Laboratorio {
             return false;
         }
         final Laboratorio other = (Laboratorio) obj;
-        if (!Objects.equals(this.nomeLaboratorio, other.nomeLaboratorio)) {
+        if (!Objects.equals(this.nomeLab, other.nomeLab)) {
             return false;
         }
-        if (!Objects.equals(this.telefoneLaboratorio, other.telefoneLaboratorio)) {
+        if (!Objects.equals(this.enderecoLab, other.enderecoLab)) {
+            return false;
+        }
+        if (!Objects.equals(this.complEndLab, other.complEndLab)) {
+            return false;
+        }
+        if (!Objects.equals(this.responsavelLab, other.responsavelLab)) {
+            return false;
+        }
+        if (!Objects.equals(this.telefone1Lab, other.telefone1Lab)) {
+            return false;
+        }
+        if (!Objects.equals(this.telefone2Lab, other.telefone2Lab)) {
+            return false;
+        }
+        if (!Objects.equals(this.numeroEndLab, other.numeroEndLab)) {
+            return false;
+        }
+        if (!Objects.equals(this.cpfRespLab, other.cpfRespLab)) {
             return false;
         }
         return true;
     }
+
+    public String getNomeLab() {
+        return nomeLab;
+    }
+
+    public void setNomeLab(String nomeLab) {
+        this.nomeLab = nomeLab;
+    }
+
+    public Integer getTelefone1Lab() {
+        return telefone1Lab;
+    }
+
+    public void setTelefone1Lab(Integer telefone1Lab) {
+        this.telefone1Lab = telefone1Lab;
+    }
+
+    public Integer getTelefone2Lab() {
+        return telefone2Lab;
+    }
+
+    public void setTelefone2Lab(Integer telefone2Lab) {
+        this.telefone2Lab = telefone2Lab;
+    }
+
+    public String getEnderecoLab() {
+        return enderecoLab;
+    }
+
+    public void setEnderecoLab(String enderecoLab) {
+        this.enderecoLab = enderecoLab;
+    }
+
+    public Integer getNumeroEndLab() {
+        return numeroEndLab;
+    }
+
+    public void setNumeroEndLab(Integer numeroEndLab) {
+        this.numeroEndLab = numeroEndLab;
+    }
+
+    public String getComplEndLab() {
+        return complEndLab;
+    }
+
+    public void setComplEndLab(String complEndLab) {
+        this.complEndLab = complEndLab;
+    }
+
+    public String getResponsavelLab() {
+        return responsavelLab;
+    }
+
+    public void setResponsavelLab(String responsavelLab) {
+        this.responsavelLab = responsavelLab;
+    }
+
+    public Integer getCpfRespLab() {
+        return cpfRespLab;
+    }
+
+    public void setCpfRespLab(Integer cpfRespLab) {
+        this.cpfRespLab = cpfRespLab;
+    }
+
+    
   
 }

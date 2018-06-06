@@ -5,6 +5,9 @@
  */
 package br.com.virtualrecipe.telas;
 
+import br.com.business.LaboratorioBusiness;
+import br.com.virtualrecipe.dominio.Laboratorio;
+
 /**
  *
  * @author melis_000
@@ -12,7 +15,7 @@ package br.com.virtualrecipe.telas;
 public class MenuAdmin extends javax.swing.JFrame {
 
     /**
-     * Creates new form Menu
+     * Creates new form MenuP
      */
     public MenuAdmin() {
         initComponents();
@@ -46,6 +49,7 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         btn_CadPac.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btn_CadPac.setText("Cadastro de paciente");
+        btn_CadPac.setFocusable(false);
         btn_CadPac.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_CadPacActionPerformed(evt);
@@ -54,6 +58,11 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         btn_CadMed.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btn_CadMed.setText("Cadastro de médico");
+        btn_CadMed.setBorderPainted(false);
+        btn_CadMed.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btn_CadMed.setFocusPainted(false);
+        btn_CadMed.setFocusable(false);
+        btn_CadMed.setOpaque(false);
         btn_CadMed.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_CadMedActionPerformed(evt);
@@ -62,12 +71,25 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         btn_CadCons.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btn_CadCons.setText("Cadastro de consultório");
+        btn_CadCons.setFocusable(false);
+        btn_CadCons.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_CadConsActionPerformed(evt);
+            }
+        });
 
         btn_CadLab.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btn_CadLab.setText("Cadastro de laboratório");
+        btn_CadLab.setFocusable(false);
+        btn_CadLab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_CadLabActionPerformed(evt);
+            }
+        });
 
         btn_CadRec.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btn_CadRec.setText("Cadastro de receita");
+        btn_CadRec.setFocusable(false);
         btn_CadRec.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_CadRecActionPerformed(evt);
@@ -76,12 +98,15 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         btn_CadEx.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btn_CadEx.setText("Cadastro de exame");
+        btn_CadEx.setEnabled(false);
 
         jLabel1.setFont(new java.awt.Font("Arial", 3, 24)); // NOI18N
         jLabel1.setText("Virtual Recipe");
 
         jButton1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jButton1.setText("Voltar");
+        jButton1.setFocusCycleRoot(true);
+        jButton1.setFocusable(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -90,6 +115,7 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         jButton2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jButton2.setText("Cadastro de farmácia");
+        jButton2.setEnabled(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -166,7 +192,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         setVisible(false);
-        Menu menu = new Menu();
+        MenuP menu = new MenuP();
         menu.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -179,7 +205,29 @@ public class MenuAdmin extends javax.swing.JFrame {
 
     private void btn_CadPacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CadPacActionPerformed
         // TODO add your handling code here:
+        setVisible(false);
+        CadastroPacienteTela paciente = new CadastroPacienteTela();
+        paciente.setVisible(true);
+        
+        
     }//GEN-LAST:event_btn_CadPacActionPerformed
+
+    private void btn_CadConsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CadConsActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        CadastroConsultorioTela consultorio = new CadastroConsultorioTela();
+        consultorio.setVisible(true);
+        
+    }//GEN-LAST:event_btn_CadConsActionPerformed
+
+    private void btn_CadLabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CadLabActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        CadLabTela lab = new CadLabTela();
+        lab.setVisible(true);
+        
+        
+    }//GEN-LAST:event_btn_CadLabActionPerformed
 
     /**
      * @param args the command line arguments

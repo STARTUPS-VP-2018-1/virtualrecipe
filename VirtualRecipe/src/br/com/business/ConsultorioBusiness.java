@@ -30,14 +30,7 @@ public class ConsultorioBusiness implements ConsultorioInterface {
         return consultorio;
     }
 
-    @Override
-    public Consultorio buscarConsultorio(Integer id) {
-       for (Consultorio consultorio: BancoDeDados.consultorioBDFake){
-            if(consultorio.getId() == id){
-                return consultorio;
-            }
-        }return null;
-    }
+   
 
     @Override
     public List<Consultorio> buscarConsultorioPorNome(String nome) {
@@ -53,9 +46,9 @@ public class ConsultorioBusiness implements ConsultorioInterface {
     }
 
     @Override
-    public List<Consultorio> buscarConsultorioPorTelefone(Integer telefone) {
+    public List<Consultorio> buscarConsultorioPorTelefone(Integer telefone1) {
          for (Consultorio consultorio: BancoDeDados.consultorioBDFake){
-            if(consultorio.getTelefoneConsultorio()== telefone){
+            if(consultorio.getTelefone1Consultorio()== telefone1){
                 return (List<Consultorio>) consultorio;
             }
         }return null;
@@ -65,8 +58,6 @@ public class ConsultorioBusiness implements ConsultorioInterface {
     public List<Consultorio> buscarTodosConsultorios() {
      return BancoDeDados.consultorioBDFake;
     }
-
-
 
 }
 
